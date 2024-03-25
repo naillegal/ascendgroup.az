@@ -1,0 +1,46 @@
+{% extends 'layout.html' %} {% load static %} {% load i18n %} 
+{% block title %}
+  <title>{% trans "Layihələr - Ascend Group “MMC” mebel şirkəti" %}</title>
+{% endblock title %}
+{% block meta_tags %} 
+<meta name="description" content="Bizimlə sayt üzərindən və ya digər vasitələrlə əlaqə saxlaya, görüşmək üçün vaxt təyin edə bilərsiniz.">
+<meta property="og:title" content="Layihələr - Ascend Group “MMC” mebel şirkəti" />
+<meta property="og:description" content="Bizimlə sayt üzərindən və ya digər vasitələrlə əlaqə saxlaya, görüşmək üçün vaxt təyin edə bilərsiniz." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="{{request.build_absolute_uri}}" />
+<meta property="og:image" content="{% static "assets/ascendLogo.png" %}" />
+{% endblock meta_tags %} 
+{% block main %}
+<section class="initial">
+  <div class="overlay">
+    <h1>{% trans "Layihələr" %}</h1>
+  </div>
+</section>
+<section id="projects-detail-main">
+  <div class="container-fluid">
+    <div class="row row-gap-5">
+      <div class="col-12 col-lg-6 m-auto order2">
+        <p>{{ project.description }}</p>
+      </div>
+      <div class="col-12 col-lg-6 order1">
+        <div class="box">
+          <img src="{{ project.image.url }}" alt="{{ project.name }}" />
+          <div class="text-box">{{ project.name }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="project-images">
+  <div class="container-fluid">
+    <div class="row row-gap-4">
+      {% for image in project.images.all %}
+      <div class="col-6">
+        <img src="{{ image.image.url }}" alt="{{ project.name }} Image" />
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% endblock main%}

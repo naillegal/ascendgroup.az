@@ -1,0 +1,92 @@
+{% extends 'layout.html' %} {% load static %} {% load i18n %} 
+{% block title %}
+  <title>{% trans "Haqqımızda - Ascend Group “MMC” mebel şirkəti" %}</title>
+{% endblock title %}
+{% block meta_tags %} 
+<meta name="description" content="ASCEND GROUP mebel şirkəti.Mebel hazırlanması və dizaynları.Mətbəx mebelləri, uşaq yataq mebelləri, qarderoblar, dəhliz mebelləri, yataq otağı dəstləri, tv stendlər.">
+<meta property="og:title" content="Haqqımızda - Ascend Group “MMC” mebel şirkəti" />
+<meta property="og:description" content="ASCEND GROUP mebel şirkəti.Mebel hazırlanması və dizaynları.Mətbəx mebelləri, uşaq yataq mebelləri, qarderoblar, dəhliz mebelləri, yataq otağı dəstləri, tv stendlər." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="{{request.build_absolute_uri}}" />
+<meta property="og:image" content="{% static "assets/ascendLogo.png" %}" />
+{% endblock meta_tags %} 
+{% block main %}
+<section class="initial">
+  <div class="overlay">
+    <h1>{% trans "Haqqımızda" %}</h1>
+  </div>
+</section>
+<section id="about-first">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 col-lg-6">
+        <h2>ASCEND GROUP “MMC”</h2>
+        <p>
+          {% trans "Mebel sahəsində böyük uğurlara imza atmış şirkətlərdən biridir." %} {% trans "Məqsədimiz müasir tələblərə uyğun mebel dizaynların hazırlanması və onların həyata keçirilməsidir." %} {% trans "Missiyamız Hotel, Restoran, Məktəb, Bağça, Səhiyyə, Hərbi və s. mebellərin istehsalını və satışını həyata keçirməklə, müştərilərimizi məmnun salmaqdır." %} {% trans "Əlavə olaraq ASCEND GROUP “MMC” şirkəti məhsullarını xarici ölkələrə də təklif etmək imkanı yaradır." %}
+        </p>
+      </div>
+      <div class="col-12 col-lg-6 p-0">
+        <div class="bg-orange-img">
+          <img src="{% static "assets/about-first.png" %}" alt="" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="about-founder">
+  <div class="container-fluid">
+    <div class="row row-gap-4 align-items-center">
+      <div class="col-12 col-lg-6 p-0">
+        <div class="bg-orange-img">
+          <img src="{% static "assets/about-founder.png" %}" alt="" />
+        </div>
+      </div>
+      <div class="col-12 col-lg-6">
+        <h2>{% trans "Təsisçi direktor" %}</h2>
+        <h3>Elçin Hüseynov Şəfiq oğlu</h3>
+        <p>
+          ASCEND GROUP mebel şirkəti fəaliyyətə fiziki şəxs kimi 06.10.2017 ci
+          ildən Hüquqi şəxs kimi 19.06.2020-ci ildən başlamışdır.15-dən çox
+          mebel kateqoriyası üzrə ixtisaslanan şirkətin əsas fəaliyyət
+          istiqamətlərinə ofis mebelləri,müxtəlif funksionallıqda mətbəx
+          mebelləri,uşaq yataq mebelləri,qarderoblar,dəhliz mebelləri,yataq
+          otağı dəstləri, tv stendlər daxildir.Şirkət həmçinin özəl layihələr
+          əsasında təhsil mərkəzləri,səhiyyə ocaqları,özəl müəssisələri üçün
+          müxtəlif təyinatlı mebellərin sifarişini də həyata keçirməkdədir.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="about-employees">
+  <p class="section-title">{% trans "Əməkdaşlarımız" %}</p>
+  <div class="container">
+    <div class="row row-gap-5">
+      {% for employee in employees %}
+      <div class="col-6 col-lg-4">
+        <div class="img-box">
+          <img src="{{ employee.image.url }}" alt="{{ employee.fullname }}" />
+        </div>
+        <div class="employees-content">
+          <h6>{{ employee.fullname }}</h6>
+          <p>{{ employee.job }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<section id="certificates">
+  <p class="section-title">Sertifikatlarımız</p>
+  <div class="container-fluid">
+    <div class="row">
+      {% for certificate in certificates %}
+      <div class="col-12 col-lg-6">
+        <img src="{{ certificate.image.url }}" alt="">
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% endblock main%}

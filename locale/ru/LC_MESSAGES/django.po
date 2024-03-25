@@ -1,0 +1,212 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-03-25 14:46+0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: .\about\templates\about.html:3
+msgid "Haqqımızda - Ascend Group “MMC” mebel şirkəti"
+msgstr "О нас - Ascend Group “MMC” мебельная компания"
+
+#: .\about\templates\about.html:16 .\home\templates\home.html:38
+#: .\templates\layout.html:38 .\templates\layout.html:94
+#: .\templates\layout.html:136 .\templates\layout.html:160
+msgid "Haqqımızda"
+msgstr "О нас"
+
+#: .\about\templates\about.html:25
+msgid "Mebel sahəsində böyük uğurlara imza atmış şirkətlərdən biridir."
+msgstr "Это одна из компаний, добившихся больших успехов в области мебели."
+
+#: .\about\templates\about.html:25
+msgid ""
+"Məqsədimiz müasir tələblərə uyğun mebel dizaynların hazırlanması və onların "
+"həyata keçirilməsidir."
+msgstr ""
+"Наша цель – разработать и реализовать дизайн мебели в соответствии с "
+"современными требованиями."
+
+#: .\about\templates\about.html:25
+msgid ""
+"Missiyamız Hotel, Restoran, Məktəb, Bağça, Səhiyyə, Hərbi və s. mebellərin "
+"istehsalını və satışını həyata keçirməklə, müştərilərimizi məmnun salmaqdır."
+msgstr ""
+"Наша миссия — отель, ресторан, школа, сад, здравоохранение, армия и т. д. "
+"Целью компании является удовлетворение потребностей наших клиентов путем "
+"производства и продажи мебели."
+
+#: .\about\templates\about.html:25
+msgid ""
+"Əlavə olaraq ASCEND GROUP “MMC” şirkəti məhsullarını xarici ölkələrə də "
+"təklif etmək imkanı yaradır."
+msgstr ""
+"Кроме того, ООО “АСКЕНД ГРУПП”» создает возможность предлагать свою "
+"продукцию зарубежным странам."
+
+#: .\about\templates\about.html:45
+msgid "Təsisçi direktor"
+msgstr "соучредитель"
+
+#: .\about\templates\about.html:62
+msgid "Əməkdaşlarımız"
+msgstr "Наши сотрудники"
+
+#: .\contact\forms.py:6
+msgid "Ad"
+msgstr "Имя"
+
+#: .\contact\forms.py:7
+msgid "Nömrəniz"
+msgstr "Номер"
+
+#: .\contact\forms.py:8
+msgid "Mövzu"
+msgstr "Предмет"
+
+#: .\contact\templates\contact.html:3
+msgid "Əlaqə - Ascend Group “MMC” mebel şirkəti"
+msgstr "Контакт - Ascend Group “MMC” мебельная компания"
+
+#: .\contact\templates\contact.html:16 .\templates\layout.html:47
+#: .\templates\layout.html:97 .\templates\layout.html:138
+#: .\templates\layout.html:162
+msgid "Əlaqə"
+msgstr "Контакт"
+
+#: .\contact\templates\contact.html:22
+msgid "Bizimlə əlaqə saxla"
+msgstr "Связаться с нами"
+
+#: .\contact\templates\contact.html:23
+msgid "Bizimlə rahatlıqla əlaqəyə keçə bilərsiz"
+msgstr "Вы можете легко связаться с нами"
+
+#: .\contact\templates\contact.html:24
+msgid ""
+"Bizimlə sosial media hesablarımız, poçt ünvanımız və çağrı mərkəzimiz "
+"üzərindən əlaqə saxlaya bilərsiniz."
+msgstr ""
+"Вы можете связаться с нами через наши учетные записи в социальных сетях, наш "
+"почтовый адрес и наш колл-центр."
+
+#: .\contact\templates\contact.html:38
+msgid "Mesajınız"
+msgstr "сообщение"
+
+#: .\contact\templates\contact.html:40
+msgid "Göndər"
+msgstr "Отправлять"
+
+#: .\contact\templates\contact.html:51 .\templates\layout.html:142
+#: .\templates\layout.html:166
+msgid "Bizimlə Əlaqə"
+msgstr "Связаться с нами"
+
+#: .\contact\templates\contact.html:66 .\templates\layout.html:149
+#: .\templates\layout.html:173
+msgid "Ünvan"
+msgstr "Адрес"
+
+#: .\home\templates\home.html:3
+msgid "Ana Səhifə - Ascend Group “MMC” mebel şirkəti"
+msgstr "Главную - Ascend Group “MMC” мебельная компания"
+
+#: .\home\templates\home.html:40
+msgid ""
+"mebel şirkəti fəaliyyətə fiziki şəxs kimi 06.10.2017-ci ildən Hüquqi şəxs "
+"kimi 19.06.2020-ci ildən başlamışdır."
+msgstr ""
+"Мебельная компания начала свою деятельность как физическое лицо 06.10.2017 и "
+"как юридическое лицо 19.06.2020."
+
+#: .\home\templates\home.html:40
+msgid ""
+"15-dən çox mebel kateqoriyası üzrə ixtisaslanan şirkətin əsas fəaliyyət "
+"istiqamətlərinə ofis mebelləri, müxtəlif funksionallıqda mətbəx mebelləri, "
+"uşaq yataq mebelləri, qarderoblar, dəhliz mebelləri, yataq otağı dəstləri, "
+"tv stendlər daxildir."
+msgstr ""
+"Специализируясь на более чем 15 категориях мебели, основная деятельность "
+"компании включает офисную мебель, кухонную мебель с различными функциями, "
+"мебель для детских кроватей, шкафы-купе, мебель для коридоров, спальные "
+"гарнитуры, тумбы под телевизор."
+
+#: .\home\templates\home.html:40
+msgid ""
+"Şirkət həmçinin özəl layihələr əsasında təhsil mərkəzləri, səhiyyə ocaqları, "
+"özəl müəssisələri üçün müxtəlif təyinatlı mebellərin sifarişini də həyata "
+"keçirməkdədir."
+msgstr ""
+"Компания также заказывает мебель различного назначения для образовательных "
+"центров, санаториев и частных предприятий по частным проектам."
+
+#: .\home\templates\home.html:47 .\templates\layout.html:41
+#: .\templates\layout.html:95 .\templates\layout.html:137
+#: .\templates\layout.html:161
+msgid "Məhsullarımız"
+msgstr "Наши продукты"
+
+#: .\home\templates\home.html:68
+msgid "Seçilmiş layihələrimiz"
+msgstr "Избранные проекты"
+
+#: .\home\templates\home.html:92
+msgid "Video Çarxlar"
+msgstr "Видео ролики"
+
+#: .\home\templates\home.html:119
+msgid "Tərəfdaşlarımız"
+msgstr "Наши партнеры"
+
+#: .\home\templates\home.html:135
+msgid "Həyata keçirdiyimiz<br />layihələr və statistikamız"
+msgstr "Наши проекты и<br />статистика"
+
+#: .\products\templates\products.html:3
+msgid "Məhsullarımız - Ascend Group “MMC” mebel şirkəti"
+msgstr "Наши продукты - Ascend Group “MMC” мебельная компания"
+
+#: .\projects\templates\project-detail.html:3
+#: .\projects\templates\projects.html:3
+msgid "Layihələr - Ascend Group “MMC” mebel şirkəti"
+msgstr "Проекты - Ascend Group “MMC” мебельная компания"
+
+#: .\projects\templates\project-detail.html:16
+#: .\projects\templates\projects.html:16 .\templates\layout.html:44
+#: .\templates\layout.html:96
+msgid "Layihələr"
+msgstr "Проекты"
+
+#: .\templates\layout.html:35 .\templates\layout.html:93
+#: .\templates\layout.html:135 .\templates\layout.html:159
+msgid "Ana Səhifə"
+msgstr "Главную"
+
+#: .\templates\layout.html:129
+msgid "Hədəfimiz imkansızı bacarmaqdır"
+msgstr "Наша цель – достичь невозможного"
+
+#: .\templates\layout.html:133 .\templates\layout.html:157
+msgid "Linklər"
+msgstr "Ссылки"
+
+#, fuzzy
+#~| msgid "Mesajınız"
+#~ msgid "Adınız"
+#~ msgstr "Имя"

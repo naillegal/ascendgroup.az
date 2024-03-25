@@ -1,0 +1,187 @@
+{% load static %}
+{% load i18n %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  {% block meta_tags %}{% endblock meta_tags %}
+  {% block title %}{% endblock title %}
+  <title>Ascend Group</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="icon" href="{% static "assets/ascent-favicon.png" %}" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{% static "vendors/bootstrap.css" %}" /> 
+  <link rel="stylesheet" href="{% static "vendors/bootstrap.min.css" %}" /> 
+  <link rel="stylesheet" href="{% static "styles/style.css" %}" />
+</head>
+<body>
+<header class="py-2" id="header">
+  <div class="top-header custom_container">
+    <div class="row align-items-center justify-content-between wrapper m-0">
+      <div class="col-3 p-0 logo">
+        <a href="{% url 'home' %}">
+          <img src="{% static "assets/ascendLogo.png" %}" class="img-fluid" alt="" />
+        </a>
+      </div>
+      <div class="col-9 col-xl-6 links">
+        <ul class="d-flex p-0 m-0 justify-content-between align-items-center">
+          <li class="list-unstyled">
+            <a class="px-2 {% if request.resolver_match.url_name == 'home' %}active{% endif %}" href="{% url 'home' %}">{% trans "Ana Səhifə" %}</a>
+          </li>
+          <li class="list-unstyled">
+            <a class="px-2 {% if request.resolver_match.url_name == 'about' %}active{% endif %}" href="{% url 'about' %}">{% trans "Haqqımızda" %}</a>
+          </li>
+          <li class="list-unstyled">
+            <a class="px-2 {% if request.resolver_match.url_name == 'products' %}active{% endif %}" href="{% url 'products' %}">{% trans "Məhsullarımız" %}</a>
+          </li>
+          <li class="list-unstyled">
+            <a class="px-2 {% if request.resolver_match.url_name == 'projects' %}active{% endif %}" href="{% url 'projects' %}">{% trans "Layihələr" %}</a>
+          </li>
+          <li class="list-unstyled">
+            <a class="px-2 {% if request.resolver_match.url_name == 'contact' %}active{% endif %}" href="{% url 'contact' %}">{% trans "Əlaqə" %}</a>
+          </li>
+          <form id="lang-form" class="d-none" action="{% url 'set_language' %}" method="post">{% csrf_token %}
+            <input name="next" type="hidden" value="{{ redirect_to }}">
+            <select id="lang-select" name="language">
+              {% get_current_language as LANGUAGE_CODE %}
+              {% get_available_languages as LANGUAGES %}
+              {% get_language_info_list for LANGUAGES as languages %}
+              {% for language in languages %}
+              <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                {{ language.name_local }} ({{ language.code }})
+              </option>
+              {% endfor %}
+            </select>
+            <input type="submit" value="Go">
+          </form>
+          <li class="list-unstyled multi-lang-li">
+            <a type="button" class="px-2">{{LANGUAGE_CODE|upper}}</a>
+            <ul class="multi-lang-ul list-unstyled">
+              {% for language in languages %}
+              <li>
+                <a type="button" onclick="document.getElementById('lang-select').value='{{language.code}}';document.getElementById('lang-form').submit()" class="px-2">{{language.code|upper}}</a>
+              </li>
+              {% endfor %}
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="side-header custom_container">
+    <div class="row align-items-center justify-content-between m-0">
+      <div class="col-5 p-0 col-sm-4 logo">
+        <a href="{% url 'home' %}">
+          <img src="{% static "assets/ascendLogo.png" %}" class="img-fluid" alt="" />
+        </a>
+      </div>
+      <div class="col-1 p-0" id="menuIcon">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+      <div class="col-12" id="menu">
+        <div class="top-part">
+          <img class="pt-3" src="{% static "assets/ascendLogo.png" %}" alt="" />
+          <div id="menuClose"><i class="fa-solid fa-xmark"></i></div>
+        </div>
+        <ul class="p-0 m-0">
+          <li class="list-unstyled"><a href="{% url 'home' %}">{% trans "Ana Səhifə" %}</a></li>
+          <li class="list-unstyled"><a href="{% url 'about' %}">{% trans "Haqqımızda" %}</a></li>
+          <li class="list-unstyled"><a href="{% url 'products' %}">{% trans "Məhsullarımız" %}</a></li>
+          <li class="list-unstyled"><a href="{% url 'projects' %}">{% trans "Layihələr" %}</a></li>
+          <li class="list-unstyled"><a href="{% url 'contact' %}">{% trans "Əlaqə" %}</a></li>
+          <form id="lang-form" class="d-none" action="{% url 'set_language' %}" method="post">{% csrf_token %}
+            <input name="next" type="hidden" value="{{ redirect_to }}">
+            <select id="lang-select" name="language">
+              {% get_current_language as LANGUAGE_CODE %}
+              {% get_available_languages as LANGUAGES %}
+              {% get_language_info_list for LANGUAGES as languages %}
+              {% for language in languages %}
+              <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                {{ language.name_local }} ({{ language.code }})
+              </option>
+              {% endfor %}
+            </select>
+            <input type="submit" value="Go">
+          </form>
+          <div class="d-flex responsive-multi-lang">
+            {% for language in languages %}
+                <a type="button" onclick="document.getElementById('lang-select').value='{{language.code}}';document.getElementById('lang-form').submit()">{{language.code|upper}}</a>
+            {% endfor %}
+          </div>
+        </ul>
+      </div>
+    </div>
+    <div id="bottom-overlay"></div>
+  </div>
+</header>
+{% block main %}{% endblock main %}
+<footer class="pt-4">
+  <div class="custom_container">
+    <div class="wrapper">
+      <div class="logo">
+        <img class="img-fluid" src="{% static "assets/ascendLogo.png" %}" alt="" />
+        <div>{% trans "Hədəfimiz imkansızı bacarmaqdır" %}</div>
+      </div>
+      <div class="responsive-group-box">
+        <div class="links">
+          <div class="h6 heading" onclick="toggleList('linksList')">{% trans "Linklər" %} <i class="fa-solid fa-angle-down"></i></div>
+          <ul class="p-0" id="linksList">
+            <li><a href="{% url 'home' %}">{% trans "Ana Səhifə" %}</a></li>
+            <li><a href="{% url 'about' %}">{% trans "Haqqımızda" %}</a></li>
+            <li><a href="{% url 'products' %}">{% trans "Məhsullarımız" %}</a></li>
+            <li><a href="{% url 'contact' %}">{% trans "Əlaqə" %}</a></li>
+          </ul>
+        </div>
+        <div class="contact">
+          <div class="h6 heading" onclick="toggleList('contactList')">{% trans "Bizimlə Əlaqə" %} <i class="fa-solid fa-angle-down"></i></div>
+          <ul class="p-0" id="contactList">
+            <li><i class="fa-regular fa-envelope"></i><a href="mailto:ascendgroupbaku@gmail.com">ascendgroupbaku@gmail.com</a></li>
+            <li><i class="fa-solid fa-phone"></i><a href="tel:+994552042729"> +994 55 204 27 29</a></li>
+          </ul>
+        </div>
+        <div class="location">
+          <div class="h6 heading" onclick="toggleList('locationList')">{% trans "Ünvan" %} <i class="fa-solid fa-angle-down"></i></div>
+          <ul class="p-0" id="locationList">
+            <li><i class="fa-solid fa-location-dot"></i><a href="{% url 'contact' %}">Binəqədi ş/s Zəngəzur restoranının arxası, Bakı 1054</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="group-box">
+        <div class="links">
+          <div class="h6 heading">{% trans "Linklər" %}</div>
+          <ul class="p-0">
+            <li><a href="home.html">{% trans "Ana Səhifə" %}</a></li>
+            <li><a href="about.html">{% trans "Haqqımızda" %}</a></li>
+            <li><a href="products.html">{% trans "Məhsullarımız" %}</a></li>
+            <li><a href="contact.html">{% trans "Əlaqə" %}</a></li>
+          </ul>
+        </div>
+        <div class="contact">
+          <div class="h6 heading">{% trans "Bizimlə Əlaqə" %}</div>
+          <ul class="p-0">
+            <li><i class="fa-regular fa-envelope"></i><a href="mailto:ascendgroupbaku@gmail.com">ascendgroupbaku@gmail.com</a></li>
+            <li><i class="fa-solid fa-phone"></i><a href="tel:+994552042729"> +994 55 204 27 29</a></li>
+          </ul>
+        </div>
+        <div class="location">
+          <div class="h6 heading">{% trans "Ünvan" %}</div>
+          <ul class="p-0">
+            <li><i class="fa-solid fa-location-dot"></i><a href="{% url 'contact' %}">Binəqədi ş/s Zəngəzur restoranının arxası, Bakı 1054</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright h6" id="copyright"></div>
+    </div>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="{% static "js/main.js" %}"></script>
+</body>
+</html>

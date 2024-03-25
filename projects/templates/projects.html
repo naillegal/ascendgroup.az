@@ -1,0 +1,62 @@
+{% extends 'layout.html' %} {% load static %} {% load i18n %} 
+{% block title %}
+  <title>{% trans "Layihələr - Ascend Group “MMC” mebel şirkəti" %}</title>
+{% endblock title %}
+{% block meta_tags %} 
+<meta name="description" content="Bizimlə sayt üzərindən və ya digər vasitələrlə əlaqə saxlaya, görüşmək üçün vaxt təyin edə bilərsiniz.">
+<meta property="og:title" content="Layihələr - Ascend Group “MMC” mebel şirkəti" />
+<meta property="og:description" content="Bizimlə sayt üzərindən və ya digər vasitələrlə əlaqə saxlaya, görüşmək üçün vaxt təyin edə bilərsiniz." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="{{request.build_absolute_uri}}" />
+<meta property="og:image" content="{% static "assets/ascendLogo.png" %}" />
+{% endblock meta_tags %} 
+ {% block main %}
+<section class="initial">
+  <div class="overlay">
+    <h1>{% trans "Layihələr" %}</h1>
+  </div>
+</section>
+<section class="projects">
+  <div class="project-images">
+    {% for project in projects %}
+    <div class="project-box"><span>{{ forloop.counter }}</span></div>
+    <div class="project-box">
+      <img src="{{ project.image.url }}" alt="" />
+      <div class="project-name">
+        <a href="{% url 'project-detail' project.pk project.slug %}"
+          >{{ project.name }}</a
+        >
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section id="section-pagination">
+    <div class="d-flex justify-content-center projects-pagination">
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          {% if projects.has_previous %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ projects.previous_page_number }}" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          {% endif %}
+          {% for i in projects.paginator.page_range %}
+          <li class="page-item {% if projects.number == i %}active{% endif %}">
+            <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+          </li>
+          {% endfor %}
+          {% if projects.has_next %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ projects.next_page_number }}" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+          {% endif %}
+        </ul>
+      </nav>
+    </div>
+  </section>
+{% endblock main%}

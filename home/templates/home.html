@@ -1,0 +1,161 @@
+{% extends 'layout.html' %} {% load static %} {% load i18n %} 
+{% block title %}
+  <title>{% trans "Ana Səhifə - Ascend Group “MMC” mebel şirkəti" %}</title>
+{% endblock title %}
+{% block meta_tags %} 
+<meta name="description" content="ASCEND GROUP mebel şirkəti.Mebel hazırlanması və dizaynları.Mətbəx mebelləri, uşaq yataq mebelləri, qarderoblar, dəhliz mebelləri, yataq otağı dəstləri, tv stendlər.">
+<meta property="og:title" content="Ana Səhifə - Ascend Group “MMC” mebel şirkəti" />
+<meta property="og:description" content="ASCEND GROUP mebel şirkəti.Mebel hazırlanması və dizaynları.Mətbəx mebelləri, uşaq yataq mebelləri, qarderoblar, dəhliz mebelləri, yataq otağı dəstləri, tv stendlər." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="{{request.build_absolute_uri}}" />
+<meta property="og:image" content="{% static "assets/ascendLogo.png" %}" />
+{% endblock meta_tags %} 
+{% block main %} 
+{% load project_tags %} {% get_projects as projects %} {% load product_tags %} 
+{% get_products as products %}
+<section id="home-first-slider">
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      {% for slide_content in slide_contents1 %}
+      <div class="swiper-slide">
+        <img src="{{ slide_content.image.url }}" alt="" />
+        <p>{{ slide_content.title }}</p>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+</section>
+<section id="home-about">
+  <div class="container-fluid">
+    <div class="row row-gap-5">
+      <div class="col-12 col-lg-6 order2">
+        <div class="bg-orange-img">
+          <img src={% static "assets/home-about-1.png" %} alt="" />
+        </div>
+      </div>
+      <div class="col-12 col-lg-6 my-auto order1">
+        <h3>{% trans "Haqqımızda" %}</h3>
+        <p>
+          <span>ASCEND GROUP</span> {% trans "mebel şirkəti fəaliyyətə fiziki şəxs kimi 06.10.2017-ci ildən Hüquqi şəxs kimi 19.06.2020-ci ildən başlamışdır." %} {% trans "15-dən çox mebel kateqoriyası üzrə ixtisaslanan şirkətin əsas fəaliyyət istiqamətlərinə ofis mebelləri, müxtəlif funksionallıqda mətbəx mebelləri, uşaq yataq mebelləri, qarderoblar, dəhliz mebelləri, yataq otağı dəstləri, tv stendlər daxildir." %} {% trans "Şirkət həmçinin özəl layihələr əsasında təhsil mərkəzləri, səhiyyə ocaqları, özəl müəssisələri üçün müxtəlif təyinatlı mebellərin sifarişini də həyata keçirməkdədir." %}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="home-products">
+  <p class="section-title">{% trans "Məhsullarımız" %}</p>
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      {% for product in products %}
+      <div class="swiper-slide">
+        <div class="slider-content">
+          <img src="{{ product.image.url }}" alt="" />
+          <h6>{{ product.name }}</h6>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="button-prev">
+      <i class="fa-solid fa-arrow-left-long"></i>
+    </div>
+    <div class="button-next">
+      <i class="fa-solid fa-arrow-right-long"></i>
+    </div>
+  </div>
+</section>
+<section id="home-selected-projects">
+  <p class="section-title">{% trans "Seçilmiş layihələrimiz" %}</p>
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      {% for project in projects %}
+      <div class="swiper-slide">
+        <div class="selected-project">
+          <img src="{{ project.image.url }}" alt="" />
+          <a href="{% url 'project-detail' project.pk project.slug %}"
+            >{{ project.name }}</a
+          >
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="swiper-pagination"></div>
+    <div class="button-prev">
+      <i class="fa-solid fa-arrow-left-long"></i>
+    </div>
+    <div class="button-next">
+      <i class="fa-solid fa-arrow-right-long"></i>
+    </div>
+  </div>
+</section>
+<section id="home-featured-reels">
+  <p class="section-title">{% trans "Video Çarxlar" %}</p>
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      {% for video in videos %}
+      <div class="swiper-slide">
+        <div class="video-container">
+          <video id="myVideo" preload="metadata">
+            <source src="{{ video.video.url }}" type="video/mp4" />
+            Your browser does not support the video.
+          </video>
+          <div class="play-pause-btn" id="playPauseBtn">
+            <i class="fa-solid fa-play"></i>
+            <i class="fa-solid fa-pause"></i>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="button-prev">
+      <i class="fa-solid fa-arrow-left-long"></i>
+    </div>
+    <div class="button-next">
+      <i class="fa-solid fa-arrow-right-long"></i>
+    </div>
+  </div>
+</section>
+<section id="home-partners">
+  <p class="section-title">{% trans "Tərəfdaşlarımız" %}</p>
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      {% for slide_content in slide_contents2 %}
+      <div class="swiper-slide">
+        <img src="{{ slide_content.image.url }}" alt="" />
+      </div>
+      {% endfor %}
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+</section>
+<section id="home-statistics">
+  <div class="background">
+    <img src={% static "assets/statistics-bg.png" %} alt="" />
+    <p class="section-title">
+      {% trans "Həyata keçirdiyimiz<br />layihələr və statistikamız" %}
+    </p>
+    <div class="right-side d-flex">
+      {% for stat in statistics %}
+      <div class="members">
+        <div data-val="{{ stat.members }}" class="count">
+          {{ stat.members }}
+        </div>
+        <p>Komanda üzvu</p>
+      </div>
+      <div class="experience">
+        <div data-val="{{ stat.experience }}" class="count">
+          {{ stat.experience }}
+        </div>
+        <p>İl təcrübə</p>
+      </div>
+      <div class="project">
+        <div data-val="{{ stat.projects }}" class="count">
+          {{ stat.projects }}
+        </div>
+        <p>Layihə</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock main %}

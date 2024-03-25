@@ -1,0 +1,39 @@
+{% extends 'layout.html' %} {% load static %} {% load i18n %} 
+{% block title %}
+  <title>{% trans "Məhsullarımız - Ascend Group “MMC” mebel şirkəti" %}</title>
+{% endblock title %}
+{% block meta_tags %} 
+<meta name="description" content="Bizimlə sayt üzərindən və ya digər vasitələrlə əlaqə saxlaya, görüşmək üçün vaxt təyin edə bilərsiniz.">
+<meta property="og:title" content="Məhsullarımız - Ascend Group “MMC” mebel şirkəti" />
+<meta property="og:description" content="Bizimlə sayt üzərindən və ya digər vasitələrlə əlaqə saxlaya, görüşmək üçün vaxt təyin edə bilərsiniz." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="{{request.build_absolute_uri}}" />
+<meta property="og:image" content="{% static "assets/ascendLogo.png" %}" />
+{% endblock meta_tags %} 
+{% block main %}
+<section id="laminate-slider">
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      {% for laminate in laminates %}
+      <div class="swiper-slide">
+        <img src="{{ laminate.image.url }}" alt="" />
+        <div class="laminate-content">
+          <p class="mini-content">{{ laminate.type }}</p>
+          <p>{{ laminate.name }}</p>
+          <p class="mini-content">{{ laminate.size }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+</section>
+
+<section class="gallery">
+  {% for product in our_products %}
+  <div class="box grid-background-properties" style="background-image: url('{{ product.image.url }}')">
+    <div class="text-box">{{ product.name }}</div>
+  </div>
+  {% endfor %}
+</section>
+{% endblock main%}
