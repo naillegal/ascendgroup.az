@@ -21,6 +21,7 @@ from django.urls import path, include
 from django.conf.urls.i18n import i18n_patterns
 from os import getenv
 
+handler404 = 'backend.views.handler_error_view'
 
 urlpatterns = [
     path(getenv('ADMIN_URL'), admin.site.urls),
